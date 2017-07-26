@@ -15,7 +15,7 @@ int parseFile(char *filename) {
     printf("\nParse status = %s\n", getParseStatusName(parseStatus));
 
     fclose(f);
-    
+
     return parseStatus;
 }
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     for (int i = 1; i < argc; i++) {
         parseFile(argv[i]);
     }
-    
+
     return EXIT_SUCCESS;
 }
 

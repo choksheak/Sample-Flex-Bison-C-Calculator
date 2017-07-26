@@ -92,8 +92,8 @@ void update_location(void) {
 
 void yyerror(char const *errorMessage)
 {
-	fflush(stdout);
-    
+    fflush(stdout);
+
     printf("\nParse error near %s %i:%i - %s (last read token is `%s')\n",
         lex_filename != NULL ? lex_filename : "position",
         lex_linenum,
@@ -107,43 +107,43 @@ void yyerror(char const *errorMessage)
 // Best to not require conversion to string to get integral value.
 int parse_int(int skipNumChars, int radix) {
     char *s = &(yytext[skipNumChars]);
-    
+
     for (int i = 0; s[i] != '\0'; i++) {
         char c = s[i];
-        
-        if (c == '_' || c == 'u' || c == 'b' || c == 's' || c == 'i' || c == 'l') {         
+
+        if (c == '_' || c == 'u' || c == 'b' || c == 's' || c == 'i' || c == 'l') {
             char *t = my_strdup(s);
-            
+
             do {
                 if (c != '_') {
                     t[i] = '\0';
                     break;
                 }
-                
+
                 int k = 0;
-                
+
                 for (int j = 0; s[j] != '\0'; j++) {
                     c = s[j];
-                    
+
                     if (c == 'u' || c == 'b' || c == 's' || c == 'i' || c == 'l') {
                         break;
                     }
-                    
+
                     if (s[j] != '_') {
                         t[k++] = s[j];
-                    } 
+                    }
                 }
-    
+
                 t[k] = '\0';
             }
             while (0);
-            
+
             int retval = (int) strtol(t, NULL, radix);
             free(t);
-            return retval;              
-        }       
+            return retval;
+        }
     }
-    
+
     return (int) strtol(s, NULL, radix);
 }
 
