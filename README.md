@@ -12,6 +12,24 @@ You will first need to download or checkout (git clone) the code. After that, yo
 
 The output executable is calc.exe. Just run "calc.exe test/test.txt" to run the test program.
 
+#### Sample Run
+
+The following output shows a sample run in Windows.
+
+```cmd
+C:\calc> type calc.txt
+a = (3 + 4) * (0x5 - 0b10)
+b = 1 + 2 * 3
+print a - b + 1_000_000
+
+C:\calc> calc-win64.exe calc.txt
+Setting variable a to 21
+Setting variable b to 7
+print: 1000014
+
+Parse status = Success
+```
+
 ## Syntax
 
 #### Operators
