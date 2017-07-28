@@ -43,10 +43,26 @@ Parse status = Success
 #### Expression Grouping
   - (...) : expressions can be grouped within parentheses
 
+#### Numbers
+The following number formats are supported:
+  - [1-9][0-9]* : Denary number (base 10)
+  - 0x[0-9a-zA-Z]+ : Hexadecimal number (base 16)
+  - 0o[1-7][0-7]* : Octal number, base 8
+  - 0[1-7][0-7]* : Octal number (standard C notation)
+  - 0b[01]+ : Binary number, base 2
+
+For the numbers, you can use underscores (_) within the numbers (e.g. 1_000_000) and the underscores will simply be ignored.
+
 #### Variables
   - Variable names follow the C syntax i.e. \[a-zA-Z_\]\[0-9a-ZA-Z_\]*
   - You can create any variable by assigning a value to it. e.g. a = 1
   - If you use an undefined variable, the program will print an error, and return zero as its value.
+
+#### Comments
+The following commenting syntax are supported:
+  - /* ... */ : C-style multi-line comments
+  - // ... : C-style single-line comments
+  - \# ... : Unix-style single-line comments
 
 #### Data Types
   - For this sample program, we only support integer arithmetic.
